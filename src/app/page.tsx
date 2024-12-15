@@ -5,7 +5,7 @@ import Editors from "./components/editorspick";
 import ProductCard from "./components/products-card";
 // import CardText from "./components/cards-text";
 import GreenDiv from "./components/green-div";
-import Whitediv from "./components/white-dic";
+import Whitediv from "./components/white-div";
 import Footer from "./components/footer";
 import Featured from "./components/Featured";
 

@@ -1,107 +1,60 @@
-"use client";
-import { useState } from "react";
-import { IoMdLogIn } from "react-icons/io";
-import { CiMenuFries } from "react-icons/ci";
+import Link from "next/link";
+
 import { IoSearchSharp } from "react-icons/io5";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { FaRegHeart } from "react-icons/fa6";
-import { RiArrowDropDownLine } from "react-icons/ri";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for toggling mobile menu
+  return(
+    <div>
+      {/* <!-- Navbar --> */}
+      <header className="bg-white shadow">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex justify-between items-center py-4">
+            {/* <!-- Logo --> */}
+            <div className="text-2xl font-bold text-gray-800">
+              Bandage
+            </div>
+            {/* <!-- Navigation Menu --> */}
+            <nav className="hidden lg:flex space-x-6 text-gray-600 text-sm">
+              <Link href="/" className="hover:text-gray-900">Home</Link>
+              <Link href="/shop" className="hover:text-gray-900">Shop</Link>
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  return (
-    <header>
-      <div>
-        {/* Main Navigation */}
-        <div className="bg-white text-gray-800 py-4 px-4 shadow-md">
-          <div className="flex justify-between items-center">
-            {/* Logo */}
-            <div className="text-2xl font-bold">Bandage</div>
-
-            {/* Hamburger Menu (Mobile View) */}
-            <button
-              onClick={toggleMenu}
-              className="text-gray-800 focus:outline-none lg:hidden"
-            >
-              <CiMenuFries className="w-6 h-6" />
-            </button>
-
-            {/* Navigation Links */}
-            <nav
-              className={`${
-                isMenuOpen ? "block" : "hidden"
-              } lg:flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6 text-sm mt-4 lg:mt-0`}
-            >
-              <a href="/" className="hover:text-blue-600">
-                Home
-              </a>
-              <div className="relative group">
-                <a
-                  href="#"
-                  className="hover:text-blue-600 flex items-center space-x-1"
-                >
-                  <span>Shop-1</span>
-                  <RiArrowDropDownLine className="h-4 w-4" />
-                </a>
-                <div className="absolute hidden group-hover:block bg-white shadow-lg rounded mt-2 w-40">
-                  <a
-                    href="/shop"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Shop-1
-                  </a>
-                  <a
-                    href="/Shop-2"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Shop-2
-                  </a>
-                </div>
-              </div>
-              <a href="/about" className="hover:text-blue-600">
-                About
-              </a>
-              <a href="/blog" className="hover:text-blue-600">
-                Blog
-              </a>
-              <a href="/contact" className="hover:text-blue-600">
-                Contact
-              </a>
-              <a href="/pages" className="hover:text-blue-600">
-                Pages
-              </a>
+              <Link href="/About" className="hover:text-gray-900">About</Link>
+              <Link href="/Blog" className="hover:text-gray-900">Blog</Link>
+              <Link href="/Contact" className="hover:text-gray-900">Contact</Link>
+              <Link href="/Blog" className="hover:text-gray-900">Pages</Link>
             </nav>
-
-            {/* Right Menu */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <a href="#" className="text-blue-600 flex items-center space-x-1">
-                <IoMdLogIn className="w-5 h-5" />
-                <span>Login / Register</span>
-              </a>
-              <IoSearchSharp className="w-5 h-5" />
-              <HiOutlineShoppingCart className="w-5 h-5" />
-              <FaRegHeart className="h-5 w-5" />
+            {/* <!-- User Actions --> */}
+            <div className="flex items-center space-x-4">
+              <Link href="#" className="text-blue-500 text-sm hover:underline">
+                Login / Register
+              </Link>
+              <Link href="#" className="text-gray-600 hover:text-gray-800">
+                <IoSearchSharp className="h-5 w-5" />
+              </Link>
+              <Link href="#" className="text-gray-600 hover:text-gray-800">
+                <HiOutlineShoppingCart className="h-5 w-5" />
+              </Link>
+              <Link href="#" className="text-gray-600 hover:text-gray-800">
+                <FaRegHeart className="h-5 w-5" />
+              </Link>
             </div>
           </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="flex flex-col space-y-4 mt-4 lg:hidden">
-              <a href="#" className="text-gray-700 hover:text-blue-600">
-                Login / Register
-              </a>
-              <IoSearchSharp className="w-5 h-5 mx-auto" />
-              <HiOutlineShoppingCart className="w-5 h-5 mx-auto" />
-              <FaRegHeart className="h-5 w-5 mx-auto" />
-            </div>
-          )}
         </div>
+      </header>
+
+      {/* <!-- Mobile Menu --> */}
+      <div className="lg:hidden bg-white shadow">
+        <nav className="space-y-2 text-center py-4 px-4 text-gray-600">
+          <Link href="/" className="block hover:text-gray-900">Home</Link>
+          <Link href="/shop" className="block hover:text-gray-900">Shop</Link>
+          <Link href="/About" className="block hover:text-gray-900">About</Link>
+          <Link href="/Blog" className="block hover:text-gray-900">Blog</Link>
+          <Link href="/Contact" className="block hover:text-gray-900">Contact</Link>
+          <Link href="/Blog" className="block hover:text-gray-900">Pages</Link>
+        </nav>
       </div>
-    </header>
+    </div>
   );
 }
